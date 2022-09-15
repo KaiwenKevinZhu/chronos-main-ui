@@ -7,6 +7,7 @@ import getTheme, { ThemeMode } from './theme';
 import { SnackbarProvider } from 'notistack';
 
 import AOS from 'aos';
+import Topbar from './components/organisms/TopBar';
 
 export const useDarkMode = () => {
   
@@ -75,11 +76,21 @@ export default function Application({
 
   }, []);
 
+  const [openSidebar, setOpenSidebar] = useState(false);
+
   const { themeMode, themeToggler, mountedComponent } = useDarkMode();
   
   useEffect(() => {
     AOS.refresh();
   }, [mountedComponent]);
+
+  const handleSidebarCloase = (): void => {
+    setOpenSidebar(false);
+  };
+
+  const handleSidebarOpen = (): void => {
+    setOpenSidebar(true);
+  };
 
   return (
     <StylesProvider injectFirst={true}>
@@ -93,9 +104,8 @@ export default function Application({
         }}
         maxSnack={3}>
           <Paper elevation={0}>
-            {/* <Layout themeMode={themeMode} themeToggler={themeToggler}> */}
-              <Component themeMode={themeMode} {...rest} />
-            {/* </Layout> */}
+            <Topbar onSidebarOpen={handleSidebarOpen}/>
+            <Component themeMode={themeMode} {...rest} />
           </Paper>
         </SnackbarProvider>
       </ThemeProvider>

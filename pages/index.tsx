@@ -1,7 +1,9 @@
 import React from 'react';
+import Application from "../src/Application";
+import MainPage from '../src/components/pages/MainPage';
 
 const IndexPage = ():JSX.Element => {
-  return <div>User Management System</div>;
+  return <Application component ={MainPage}/>;
 };
 
 export default IndexPage;
