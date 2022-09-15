@@ -6,16 +6,11 @@ const nextConfig = {
   env: {
     HOST: process.env.HOST,
   },
-  trailingSlash: true,
-  future: {
-    webpack5: true,
-  }
+  trailingSlash: true
 };
 
 const globalConfig = {
-  experimental: {
-    outputStandalone: true,
-  },
+  output: 'standalone'
 }
 
 module.exports = withPlugins([withImages, nextConfig], globalConfig);
