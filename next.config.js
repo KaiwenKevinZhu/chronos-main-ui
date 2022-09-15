@@ -9,7 +9,13 @@ const nextConfig = {
   trailingSlash: true,
   future: {
     webpack5: true,
-  },
+  }
 };
 
-module.exports = withPlugins([withImages, nextConfig]);
+const globalConfig = {
+  experimental: {
+    outputStandalone: true,
+  },
+}
+
+module.exports = withPlugins([withImages, nextConfig], globalConfig);
