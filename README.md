@@ -25,16 +25,17 @@ Example: [https://github.com/vercel/next.js/tree/canary/examples/with-docker](ht
 docker build -t nextjs-docker .
 ```
 
-1. Check if the container was created successfully
+3. Check if the container was created successfully
 
 ```jsx
 docker images
 ```
 
-1. Run container
+4. Run container
 
 ```jsx
 docker run -p 3000:3000 nextjs-docker
 ```
 
-1. Access [HTTP://localhost:3000/](HTTP://localhost:3000/) to validate
+5. Access [HTTP://localhost:3000/](HTTP://localhost:3000/) to validate
+
