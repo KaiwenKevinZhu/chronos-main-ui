@@ -6,7 +6,27 @@ const nextConfig = {
   env: {
     HOST: process.env.HOST,
   },
-  trailingSlash: true
+  trailingSlash: true,
+  future: {
+    webpack5: true,
+  },
+  async headers() {
+    return [
+      {
+        source:'/',
+        headers:[
+          {
+            key:'Cache-Control',
+            value:'no-cache'
+          },
+          {
+            key:'Access-Control-Allow-Origin',
+            value:'*',
+          }
+        ]
+      }
+    ]
+  }
 };
 
 const globalConfig = {
