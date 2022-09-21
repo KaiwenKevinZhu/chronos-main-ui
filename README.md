@@ -8,8 +8,7 @@
 
 ```jsx
 npm install 
-npm run build
-npm run start
+npm run dev
 ```
 
 1. Access [HTTP://localhost:3000/](HTTP://localhost:3000/) with the browser
