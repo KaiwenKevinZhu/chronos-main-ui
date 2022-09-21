@@ -1,9 +1,13 @@
+import { MainLayout } from '@/layouts';
 import React from 'react';
-import Application from "../src/Application";
 import HomePage from '../src/views/Home/HomePage';
 
 const IndexPage = ():JSX.Element => {
-  return <Application component ={HomePage}/>;
+  return (
+    <MainLayout>
+      <HomePage/>
+    </MainLayout>
+  );
 };
 
 export default IndexPage;

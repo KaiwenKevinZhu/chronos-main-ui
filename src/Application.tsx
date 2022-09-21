@@ -3,48 +3,12 @@ import { ThemeProvider } from '@material-ui/core/styles';
 import { Paper } from '@material-ui/core';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { StylesProvider } from '@material-ui/styles';
-import getTheme, { ThemeMode } from './theme';
+import getTheme from './theme';
 import { SnackbarProvider } from 'notistack';
 
 import AOS from 'aos';
-import Topbar from './components/organisms/TopBar';
 
-export const useDarkMode = () => {
-  
-  const [themeMode, setTheme] = useState<ThemeMode>('light');
-  //mode toggle
-  const [mountedComponent, setMountedComponent] = useState(false);
-
-  //set mode in localstorage
-  //mode is dark or light
-  const setMode = (mode:ThemeMode) => {
-    window.localStorage.setItem('themeMode', mode);
-    setTheme(mode);
-  };
-
-  const themeToggler = () => {
-    themeMode === 'light' ? setMode('dark') : setMode('light');
-  };
-
-  useEffect(() => {
-    const localTheme = window.localStorage.getItem('themeMode') as ThemeMode;
-    localTheme ? setTheme(localTheme) : setMode('light');
-    setMountedComponent(true);
-    AOS.refresh();
-  }, []);
-
-  useEffect(() => {
-    AOS.refresh();
-  }, [themeMode]);
-
-  return {
-    themeMode,
-    themeToggler,
-    mountedComponent,
-  };
-};
-
-interface Props {
+interface ApplicationInterface {
   component: any;
   // All other props
   [x: string]: any;
@@ -58,7 +22,7 @@ interface Props {
 export default function Application({
   component: Component,
   ...rest
-}: Props): JSX.Element {
+}: ApplicationInterface): JSX.Element {
 
   React.useEffect(() => {
     // Remove the server-side injected CSS.
@@ -76,25 +40,9 @@ export default function Application({
 
   }, []);
 
-  const [openSidebar, setOpenSidebar] = useState(false);
-
-  const { themeMode, themeToggler, mountedComponent } = useDarkMode();
-  
-  useEffect(() => {
-    AOS.refresh();
-  }, [mountedComponent]);
-
-  const handleSidebarCloase = (): void => {
-    setOpenSidebar(false);
-  };
-
-  const handleSidebarOpen = (): void => {
-    setOpenSidebar(true);
-  };
-
   return (
     <StylesProvider injectFirst={true}>
-      <ThemeProvider theme={getTheme(themeMode)}>
+      <ThemeProvider theme={getTheme()}>
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
         <CssBaseline />
         <SnackbarProvider
@@ -104,8 +52,7 @@ export default function Application({
         }}
         maxSnack={3}>
           <Paper elevation={0}>
-            <Topbar onSidebarOpen={handleSidebarOpen}/>
-            <Component themeMode={themeMode} {...rest} />
+            <Component {...rest}/>
           </Paper>
         </SnackbarProvider>
       </ThemeProvider>

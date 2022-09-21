@@ -1,13 +1,13 @@
 import React, { useState, useCallback } from 'react';
 import { Card, TextField, Button, CardActions, CardContent } from "@material-ui/core";
-import { _register } from '../../services/authentication';
-import { RegisterForm } from '../../models/RegisterForm';
+import { _register } from '../../../services/authentication';
+import { RegisterForm } from '../../../models/RegisterForm';
 import LoadingButton from '@mui/lab/LoadingButton';
 import { useRouter } from 'next/router';
 import { useSnackbar, VariantType } from 'notistack';
-import { ErrorMessage } from '../../exception/ErrorMessage';
+import { ErrorMessage } from '../../../exception/ErrorMessage';
 import validate from 'validate.js';
-import { FormMessgae } from '../../exception/FormMessage';
+import { FormMessgae } from '../../../exception/FormMessage';
 
 const RegisterSchema = {
     username: {
