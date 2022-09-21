@@ -1,7 +1,7 @@
 import { responsiveFontSizes } from '@material-ui/core';
 import { createTheme } from '@material-ui/core/styles';
-import { light, dark } from './palette';
 import { Theme } from '@material-ui/core/styles/createTheme';
+import { commonTheme } from './palette';
 
 /**
  * For customizing theme, modifying CustomTheme
@@ -59,7 +59,7 @@ const customTheme: CustomTheme = {
   },
 };
 
-interface CustomTheme {
+export interface CustomTheme {
   customPalette: {
     primary: {
       mortgage: string;
@@ -104,17 +104,15 @@ interface CustomTheme {
 
 export type GlobalTheme = Theme & CustomTheme;
 
-export type ThemeMode = 'light' | 'dark';
-
 /**
  * getThem is a function () => GlobalTheme
  * @param mode 
  */
-const getTheme: (mode: ThemeMode) => GlobalTheme = mode => {
+const getTheme: () => GlobalTheme = () => {
   return {
     ...responsiveFontSizes({
       ...createTheme({
-        palette: mode === 'light' ? light : dark,
+        palette: commonTheme,
         typography: {
           fontFamily: 'Montserrat',
           h3: {

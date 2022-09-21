@@ -1,4 +1,4 @@
-import RegisterCard from "../components/organisms/RegisterCard";
+import RegisterCard from "../components/organisms/RegisterCard/RegisterCard";
 
 const Register = (): JSX.Element => {
 
