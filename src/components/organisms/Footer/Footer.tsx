@@ -1,9 +1,8 @@
-import { CustomTheme } from "@/theme";
-import { makeStyles } from "@material-ui/core";
+import { makeStyles, Theme } from "@material-ui/core";
 
 //0. Interface
 export interface FooterInterface {
-    theme?: CustomTheme;
+    theme?: Theme;
     isLogin?: boolean;
 }
 

@@ -3,35 +3,27 @@ import { PaletteType } from '@material-ui/core';
 
 export const commonTheme = {
   alternate: {
-    main: '#f2f2f2',
-    dark: '#e8eaf6',
+    main: '#424242',
+    dark: '#1b1b1b',
   },
-  cardShadow: 'rgba(23, 70, 161, .11)',
-  type: 'light' as PaletteType,
+  cardShadow: '#a4a4a4',
   primary: {
-    main: '#2a6ae3',
-    light: 'rgb(71, 145, 219)',
-    dark: 'rgb(17, 82, 147)',
+    main: '#424242',
+    light: '#6d6d6d',
+    dark: '#1b1b1b',
     contrastText: '#fff',
   },
   secondary: {
-    light: '#ffb74d',
-    main: '#f7faff',
-    dark: '#f57c00',
-    contrastText: 'rgba(0, 0, 0, 0.87)',
+    main: '#757575',
+    light: '#a4a4a4',
+    dark: '#494949',
+    contrastText: '#fff',
   },
   text: {
-    primary: '#2d3748',
-    secondary: '#718096',
+    primary: '#fff',
+    secondary: '#cfcfcf',
   },
   divider: 'rgba(0, 0, 0, 0.12)',
-  background: {
-    paper: '#fff',
-    default: '#fff',
-    level2: '#f5f5f5',
-    level1: '#fff',
-    footer: '#030303',
-  },
 };
 
 // export const dark = {
