@@ -9,7 +9,7 @@ export interface HeaderInterface {
 }
 
 //1. Style
-const useStyles = makeStyles<Theme>((theme) => ({
+const useStyles = makeStyles(() => ({
     appBar: {
         color: 'primary'
     },
